@@ -1,0 +1,54 @@
+<html>
+    <head>
+       <script type = "text/javascript" src = "https://d3js.org/d3.v4.min.js"></script>
+    </head>
+ 
+    <body>
+       <h3>D3 collection API</h3>
+       <!-- <script> //MAP
+          var month = d3.map({"jan": 1, "Feb": 2, "mar": 3, "apr": 4});       
+          month.set("may",5);
+          console.log(month.get("jan")); // {"name": "jan"}
+          console.log(month.get("apr")); // undefined
+          console.log(month.has("may")); // true
+          console.log(month.values());
+
+
+          var map =  d3.map().set("fruit",2);
+          console.log(map.get("fruit")); // mango
+          console.log(map.remove("fruit")); // remove key and return true.
+          console.log(map.size());    // size is 0 because key removed.
+          console.log(map.empty());   // true
+       </script> -->
+       <!-- <script> //SET
+        var fruits =  d3.set().add("mango")
+         .add("apple").add("orange");
+        console.log(fruits.has("grapes")); // return false.
+        console.log(fruits.remove("apple")); //true
+        console.log(fruits.size());    // size is 2
+        console.log(fruits.empty());   // true
+     </script> -->
+     <script>
+        var data = [
+           {
+              "color" : "red",
+              "key" : 1
+           },
+           {
+              "color" : "green",
+              "key" : 2
+           },
+           {
+              "color" : "blue",
+              "key" : 75
+           }
+        ]
+        var nest =  d3.nest()
+           .key(function (d) { return d.color; })
+           .entries(data);
+        console.log(nest);
+        var filter = nest.filter(function (d) { return d.key === 'red' });
+        console.log(filter);
+     </script>
+    </body>
+ </html>
